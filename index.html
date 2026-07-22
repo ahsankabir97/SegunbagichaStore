@@ -169,7 +169,7 @@ body::before{
   height:calc(100vh - 72px);
   overflow-y:auto;
   overflow-x:hidden;
-  padding:16px 0 0;
+  padding:8px 0 0;
   box-shadow:4px 0 24px rgba(0,0,0,.35), inset -1px 0 0 rgba(255,255,255,.04);
   scrollbar-width:thin;
   z-index:50;
@@ -214,24 +214,31 @@ body::before{
 }
 
 .sidebar-section{
-  font-size:10px;font-weight:800;letter-spacing:2px;
+  font-size:10.5px;font-weight:800;letter-spacing:1.8px;
   color:#064e3b;
-  padding:12px 18px 6px;
-  font-family:'Merriweather',sans-serif;
+  margin:14px 14px 10px;
+  padding:7px 0;
+  font-family:'Outfit',sans-serif;
+  text-transform:uppercase;
+  background:linear-gradient(135deg,rgba(6,78,59,.16),rgba(6,78,59,.06));
+  border:1.5px solid rgba(6,78,59,.28);
+  border-radius:20px;
+  text-align:center;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.6), 0 2px 8px rgba(6,78,59,.08);
 }
-.sidebar-section:first-child{padding-top:6px;}
+.sidebar-section:first-child{margin-top:0;}
 
 .tab{
-  display:flex;align-items:center;gap:10px;
+  display:flex;align-items:center;gap:5px;
   padding:11px 18px;
   cursor:pointer;
-  font-size:12.5px;font-weight:700;
+  font-size:13px;font-weight:800;
   color:rgba(6,78,59,.80);
   border-left:3px solid transparent;
   transition:background .22s ease, color .22s ease, border-color .18s ease, transform .15s ease, box-shadow .22s ease;
   white-space:nowrap;
   font-family:'Plus Jakarta Sans',sans-serif;
-  letter-spacing:.3px;
+  letter-spacing:.35px;
   position:relative;
   border-radius:0 8px 8px 0;
   margin:1px 8px 1px 0;
@@ -251,25 +258,30 @@ body::before{
   box-shadow:inset 0 1px 0 rgba(255,255,255,.7), 2px 0 16px rgba(6,78,59,.15);
 }
 .tab .tab-icon{font-size:15px;width:20px;text-align:center;flex-shrink:0;filter:drop-shadow(0 0 4px rgba(96,165,250,.4));}
-.tab .tab-label{flex:1;font-weight:700;letter-spacing:.25px;}
+.tab .tab-label{font-weight:800;letter-spacing:.3px;}
 .badge{
-  background:rgba(6,78,59,.12);color:#064e3b;
-  font-size:11px;padding:1.5px 5px;border-radius:20px;
-  font-weight:800;min-width:14px;text-align:center;
+  background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(6,78,59,.14));
+  color:#064e3b;
+  font-size:11.5px;padding:2px 7px;border-radius:20px;
+  font-weight:800;min-width:16px;text-align:center;
   font-family:'Plus Jakarta Sans',sans-serif;
   flex-shrink:0;
-  border:1px solid rgba(6,78,59,.25);
-  transition:background .2s, color .2s;
+  border:1.5px solid rgba(255,255,255,.6);
+  backdrop-filter:blur(8px) saturate(140%);
+  -webkit-backdrop-filter:blur(8px) saturate(140%);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.7), inset 0 -2px 3px rgba(6,78,59,.12), 0 2px 6px rgba(6,78,59,.14);
+  transition:background .2s, color .2s, box-shadow .2s, transform .2s;
 }
 .tab.active .badge{
-  background:rgba(6,78,59,.2);
+  background:linear-gradient(135deg,rgba(255,255,255,.6),rgba(6,78,59,.24));
   color:#064e3b;
-  border-color:rgba(6,78,59,.35);
-  box-shadow:0 0 8px rgba(6,78,59,.15);
+  border-color:rgba(255,255,255,.7);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.75), inset 0 -2px 3px rgba(6,78,59,.18), 0 0 10px rgba(6,78,59,.2);
 }
 .tab:hover:not(.active) .badge{
-  background:rgba(6,78,59,.15);
+  background:linear-gradient(135deg,rgba(255,255,255,.6),rgba(6,78,59,.2));
   color:#064e3b;
+  transform:scale(1.05);
 }
 
 .sidebar-divider{
@@ -688,16 +700,6 @@ tr.provided-highlight:hover{background:rgba(239,108,0,.30) !important;}
   box-shadow:0 3px 10px rgba(26,79,160,.12);
   transform:translateY(-1px);
 }
-#msub-tab-deleted:not(.active){
-  border-color:rgba(239,68,68,.35);
-  color:#b91c1c;
-  background:rgba(254,226,226,.35);
-}
-#msub-tab-deleted:not(.active):hover{
-  border-color:rgba(239,68,68,.6);
-  background:rgba(254,226,226,.6);
-  color:#b91c1c;
-}
 
 
 .subtab-badge{font-size:9px;padding:1.5px 6px;border-radius:10px;font-family:'JetBrains Mono',monospace;font-weight:800;margin-left:2px;transition:all .18s;}
@@ -851,16 +853,6 @@ tr.provided-highlight:hover{background:rgba(239,108,0,.30) !important;}
   <!-- SIDEBAR -->
   <nav class="sidebar">
     <div class="sidebar-nav-items">
-    <div class="sidebar-section">Equipment</div>
-    <div class="tab active" id="tab-all" onclick="go('all')">
-      <span class="tab-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" fill="rgba(96,165,250,.18)"/><path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5" fill="rgba(96,165,250,.1)"/><path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6" fill="rgba(96,165,250,.06)"/></svg></span><span class="tab-label">ALL Equipment</span><span class="badge" id="b-all">0</span>
-    </div>
-
-    <div class="tab" id="tab-done" onclick="go('done')">
-      <span class="tab-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" opacity=".4" stroke="#22c55e"/><path d="M7.5 12.5l3 3 6-6" stroke="#22c55e"/></svg></span><span class="tab-label">Done List</span><span class="badge" id="b-done">0</span>
-    </div>
-
-    <div class="sidebar-divider"></div>
     <div class="sidebar-section">Engineers</div>
     <div class="tab" id="tab-arifuzzaman" onclick="go('arifuzzaman')">
       <span class="tab-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4" fill="rgba(244,114,182,.15)"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><path d="M15.5 6.5 C16.5 5 18 5.5 18.5 7"/></svg></span><span class="tab-label">Arifuzzaman</span><span class="badge" id="b-arifuzzaman">0</span>
@@ -873,6 +865,20 @@ tr.provided-highlight:hover{background:rgba(239,108,0,.30) !important;}
     </div>
     <div class="tab" id="tab-nazrul" onclick="go('nazrul')">
       <span class="tab-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4" fill="rgba(167,139,250,.15)"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/><path d="M15.5 6.5 C16.5 5 18 5.5 18.5 7"/></svg></span><span class="tab-label">Nazrul</span><span class="badge" id="b-nazrul">0</span>
+    </div>
+
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-section">Equipment</div>
+    <div class="tab active" id="tab-all" onclick="go('all')">
+      <span class="tab-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3" fill="rgba(96,165,250,.18)"/><path d="M3 5v6c0 1.66 4.03 3 9 3s9-1.34 9-3V5" fill="rgba(96,165,250,.1)"/><path d="M3 11v6c0 1.66 4.03 3 9 3s9-1.34 9-3v-6" fill="rgba(96,165,250,.06)"/></svg></span><span class="tab-label">ALL Equipment</span><span class="badge" id="b-all">0</span>
+    </div>
+
+    <div class="tab" id="tab-done" onclick="go('done')">
+      <span class="tab-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" opacity=".4" stroke="#22c55e"/><path d="M7.5 12.5l3 3 6-6" stroke="#22c55e"/></svg></span><span class="tab-label">Done List</span><span class="badge" id="b-done">0</span>
+    </div>
+
+    <div class="tab" id="tab-deleted" onclick="go('deleted')">
+      <span class="tab-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c62828" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></span><span class="tab-label">Deleted Items</span><span class="badge" id="b-deleted" style="background:rgba(198,40,40,.15);color:#c62828;">0</span>
     </div>
 
     <div class="sidebar-divider"></div>
@@ -922,6 +928,15 @@ tr.provided-highlight:hover{background:rgba(239,108,0,.30) !important;}
       <div class="tbl-wrap" id="doneWrap"></div>
     </div>
 
+    <!-- DELETED ITEMS -->
+    <div class="page" id="page-deleted">
+      <div class="sh"><div class="st">🗑️ Deleted <span>Items</span></div></div>
+      <div class="deleted-zone">
+        <div class="tbl-wrap" id="deletedWrap" style="border:none;box-shadow:none;background:transparent;padding-bottom:48px;"></div>
+        <button class="clear-all-fab" id="clearAllBtn" onclick="clearAllDeleted()">🗑 Clear All</button>
+      </div>
+    </div>
+
     <!-- ENGINEER PAGES -->
     <div class="page" id="page-arifuzzaman"></div>
     <div class="page" id="page-maruf"></div>
@@ -945,10 +960,6 @@ tr.provided-highlight:hover{background:rgba(239,108,0,.30) !important;}
         <div class="manage-subtab" id="msub-tab-unassigned" onclick="switchManageSub('unassigned')">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
           Unassigned <span id="b-un" class="subtab-badge subtab-badge-blue">0</span>
-        </div>
-        <div class="manage-subtab" id="msub-tab-deleted" onclick="switchManageSub('deleted')">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
-          Deleted Item <span id="b-deleted" class="subtab-badge subtab-badge-red">0</span>
         </div>
       </div>
 
@@ -1009,17 +1020,6 @@ tr.provided-highlight:hover{background:rgba(239,108,0,.30) !important;}
 </div>
 
      
-      <!-- Deleted Sub-panel -->
-      <div id="msub-panel-deleted" style="display:none;">
-        <div class="deleted-zone">
-          <div class="deleted-zone-header">
-            <div class="deleted-zone-title">🗂 Deleted Items</div>
-          </div>
-          <div class="tbl-wrap" id="deletedWrap" style="border:none;box-shadow:none;background:transparent;padding-bottom:48px;"></div>
-          <button class="clear-all-fab" id="clearAllBtn" onclick="clearAllDeleted()">🗑 Clear All</button>
-        </div>
-      </div>
-
       </div><!-- /manageContent -->
     </div><!-- /page-manage -->
 
@@ -1278,6 +1278,11 @@ db.ref('.info/connected').on('value', function(snap) {
 // ── এরপর আগের code যেমন ছিল ──────────────────────────────────────
 const ENGS=['arifuzzaman','maruf','abusayed','nazrul'];
 function gid(){return Date.now().toString(36)+Math.random().toString(36).substr(2,5);}
+function pushHistory(item,eventText){
+  if(!item)return;
+  if(!item._history)item._history=[];
+  item._history.push({event:eventText,at:new Date().toISOString(),by:_currentUser||'system'});
+}
 
 let CUSTOM_ITEMS = [];
 function saveCustomItems(){
@@ -1395,7 +1400,7 @@ function go(name){
 }
 
 function switchManageSub(sub){
-  ['entry','unassigned','deleted'].forEach(s=>{
+  ['entry','unassigned'].forEach(s=>{
     const panel = document.getElementById('msub-panel-'+s);
     if(panel) panel.style.display=s===sub?'':'none';
     const tab = document.getElementById('msub-tab-'+s);
@@ -1427,6 +1432,12 @@ function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
 
 // ── RENDER ────────────────────────────────────────────────────────────
 function renderAll(){
+  window._itemIndex={};
+  ENGS.forEach(eng=>(D[eng]||[]).forEach(it=>{it._loc=cap(eng);window._itemIndex[it.id]=it;}));
+  (D.done||[]).forEach(it=>{it._loc='Done';window._itemIndex[it.id]=it;});
+  (D.unassigned||[]).forEach(it=>{it._loc='Unassigned';window._itemIndex[it.id]=it;});
+  (D.deleted||[]).forEach(it=>{it._loc='Deleted';window._itemIndex[it.id]=it;});
+
   const tot=ENGS.reduce((s,eng)=>s+(D[eng]||[]).length,0)+(D.unassigned||[]).length+(D.done||[]).length;
   ENGS.forEach(eng=>document.getElementById('b-'+eng).textContent=(D[eng]||[]).length);
   document.getElementById('b-done').textContent=(D.done||[]).length;
@@ -1464,7 +1475,7 @@ function renderAll(){
       <tbody>${items.map((it,i)=>`<tr data-status="${it.status}" class="${it.status==='Provided'?'provided-highlight':''}" onclick="toggleProvidedHighlight(this)">
         <td class="tm">${i+1}</td>
         <td class="tn">${hl(it.name,engQ)}</td>
-        <td class="ts" style="font-weight:700;">${hl(it.serial,engQ)}</td>
+        <td class="ts" style="font-weight:700;cursor:pointer;" title="Click for details" onclick="event.stopPropagation();showItemDetails('${it.id}')">${hl(it.serial,engQ)}</td>
         <td><span class="status ${it.status==='IN-Hand'?'si':it.status==='Done'?'sd':'sp'}">${it.status}</span></td>
         <td class="tm">${e(it.tech||'—')}</td>
         <td class="tt">${fd(it.date)}</td>
@@ -1505,7 +1516,7 @@ function renderAll(){
   else dw.innerHTML=`<table><thead><tr><th>#</th><th>Item Name</th><th>Serial / MAC</th><th>Client ID</th><th>Ticket ID</th><th>Technician</th><th>Engineer</th><th>Date</th><th>Remarks</th><th></th></tr></thead><tbody>${di.map((it,i)=>`<tr>
     <td class="tm">${i+1}</td>
     <td class="tn">${hl(it.name,q)}</td>
-    <td class="ts">${hl(it.serial,q)}</td>
+    <td class="ts" style="cursor:pointer;" title="Click for details" onclick="showItemDetails('${it.id}')">${hl(it.serial,q)}</td>
     <td class="tm">${e(it.client||'')}</td>
     <td class="tm" style="white-space:normal;word-break:break-all;overflow:visible;max-width:none;">${e(it.ticket||'')}</td>
     <td class="tm">${e(it.tech||'')}</td>
@@ -1553,7 +1564,7 @@ function renderAll(){
     else uw.innerHTML=`<table><thead><tr><th>#</th><th>Item Name</th><th>Serial / MAC</th><th>Remarks</th><th>Assign To →</th><th></th></tr></thead><tbody>${un.map((it,i)=>`<tr>
       <td class="tm">${i+1}</td>
       <td class="tn">${hl(it.name,q)}</td>
-      <td class="ts">${hl(it.serial,q)}</td>
+      <td class="ts" style="cursor:pointer;" title="Click for details" onclick="showItemDetails('${it.id}')">${hl(it.serial,q)}</td>
       <td class="tm">${e(it.remarks||'')}</td>
       <td><div class="ar">${ENGS.map(eng=>`<button class="ab" onclick="authGuard('assign','${eng}',()=>assignPool('${it.id}','${eng}'))">${cap(eng)}</button>`).join('')}</div></td>
       <td><button class="ab x" onclick="authGuard('delete',null,()=>delPool('${it.id}'))">🗑</button></td>
@@ -1571,7 +1582,7 @@ function renderAll(){
     else delW.innerHTML=`<table style="width:100%"><thead><tr><th>#</th><th>Item Name</th><th>Serial / MAC</th><th>Was In</th><th>Status</th><th>Deleted By</th><th>Reason</th><th>Deleted On</th><th>Restore</th></tr></thead><tbody>${del.map((it,i)=>`<tr>
       <td class="tm">${i+1}</td>
       <td class="tn">${hl(it.name,q)}</td>
-      <td class="ts">${hl(it.serial,q)}</td>
+      <td class="ts" style="cursor:pointer;" title="Click for details" onclick="showItemDetails('${it.id}')">${hl(it.serial,q)}</td>
       <td><span class="tag-e">${e(it._deletedFrom||'—')}</span></td>
       <td><span class="status ${it.status==='IN-Hand'?'si':it.status==='Done'?'sd':it.status==='Provided'?'sp':'si'}">${it.status||'—'}</span></td>
       <td class="tm" style="font-weight:700;color:var(--accent2);">${e(it._deletedBy?cap(it._deletedBy):'—')}</td>
@@ -1595,7 +1606,7 @@ function renderAllTable(rows){
   <tbody>${rows.map((r,i)=>`<tr>
     <td class="tm" style="width:36px;">${i+1}</td>
     <td class="tn" style="font-size:12.5px;font-weight:800;">${hl(r.name,q)}</td>
-    <td class="ts" style="font-size:12px;font-weight:800;">${hl(r.serial,q)}</td>
+    <td class="ts" style="font-size:12px;font-weight:800;cursor:pointer;" title="Click for details" onclick="showItemDetails('${r.id}')">${hl(r.serial,q)}</td>
     <td style="width:85px;"><span class="tag-e" style="font-size:11px;padding:3px 9px;font-weight:800;">${e(r._eng)}</span></td>
     <td><span class="status ${r.status==='IN-Hand'?'si':r.status==='Done'?'sd':r.status==='Provided'?'sp':'si'}" style="font-size:11px;font-weight:800;">${r.status==='IN-Hand'?'In Hand':r.status}</span></td>
     <td class="tm">${e(r.client||'—')}</td>
@@ -1680,7 +1691,6 @@ function getActiveTabName(){
   if(name === 'manage'){
     // check which sub-tab is active
     if(document.getElementById('msub-tab-unassigned')?.classList.contains('active')) return 'unassigned';
-    if(document.getElementById('msub-tab-deleted')?.classList.contains('active')) return 'deleted';
     return 'entry'; // entry tab has no data to export
   }
   if(document.getElementById('page-lan')?.style.display !== 'none') return 'lan';
@@ -1836,20 +1846,27 @@ function updatePreview(){
 function addPool(){
   const{name,brand,serials,remarks}=getForm();
   if(!name||!serials.length){alert('Please enter Item Name and at least one Serial!');return;}
-  serials.forEach(serial=>D.unassigned.unshift({id:gid(),name,brand,serial,remarks}));
+  serials.forEach(serial=>{
+    const newIt={id:gid(),name,brand,serial,remarks};
+    pushHistory(newIt,'Added to inventory (Unassigned pool)');
+    D.unassigned.unshift(newIt);
+  });
   save();clearForm();renderAll();toast(`📤 ${serials.length} device(s) added to Unassigned`);
 }
 function assignPool(itemId,eng){
   const idx=(D.unassigned||[]).findIndex(x=>x.id===itemId);if(idx===-1)return;
   const it=D.unassigned.splice(idx,1)[0];
   if(!D[eng])D[eng]=[];
-  D[eng].unshift({id:gid(),name:it.name,brand:it.brand||'',serial:it.serial,status:'IN-Hand',tech:'',client:'',ticket:'',remarks:it.remarks||'',date:new Date().toISOString()});
+  const newIt={id:gid(),name:it.name,brand:it.brand||'',serial:it.serial,status:'IN-Hand',tech:'',client:'',ticket:'',remarks:it.remarks||'',date:new Date().toISOString(),_history:it._history?[...it._history]:[]};
+  pushHistory(newIt,`Assigned to ${cap(eng)}`);
+  D[eng].unshift(newIt);
   save();renderAll();toast(`✅ "${it.serial}" → assigned to ${cap(eng)}`);
 }
 function returnIH(eng,id){
   const it=(D[eng]||[]).find(x=>x.id===id);if(!it)return;
   const prevTech=it.tech||'technician';
   it.status='IN-Hand';it.tech='';it.date=new Date().toISOString();
+  pushHistory(it,`Returned from ${prevTech} → back to IN-Hand`);
   save();renderAll();
   toast(`↩ ${it.serial} has been returned from ${prevTech}`);
 }
@@ -1867,6 +1884,7 @@ function confirmProv(){
   if(!tech){alert('Please select a technician!');return;}
   const it=(D[eng]||[]).find(x=>x.id===id);if(!it)return;
   it.status='Provided';it.tech=tech;it.date=new Date().toISOString();
+  pushHistory(it,`Provided to technician "${tech}" by ${cap(eng)}`);
   save();renderAll();closeProvModal();
   toast(`↗ ${it.serial} has been provided to ${tech}`);
 }
@@ -1888,7 +1906,11 @@ function confirmDone(){
   const idx=(D[_de]||[]).findIndex(x=>x.id===_di);if(idx===-1)return;
   const it=D[_de].splice(idx,1)[0];
   if(!D.done)D.done=[];
-  D.done.unshift({id:gid(),name:it.name,brand:it.brand||'',serial:it.serial,client:document.getElementById('dc').value.trim()||it.client,ticket:document.getElementById('dt').value.trim()||it.ticket,tech:document.getElementById('dtech').value.trim(),engineer:document.getElementById('deng').value.trim(),remarks:document.getElementById('drm').value.trim()||it.remarks,date:new Date().toISOString()});
+  const clientV=document.getElementById('dc').value.trim()||it.client;
+  const ticketV=document.getElementById('dt').value.trim()||it.ticket;
+  const newIt={id:gid(),name:it.name,brand:it.brand||'',serial:it.serial,status:'Done',client:clientV,ticket:ticketV,tech:document.getElementById('dtech').value.trim(),engineer:document.getElementById('deng').value.trim(),remarks:document.getElementById('drm').value.trim()||it.remarks,date:new Date().toISOString(),_history:it._history?[...it._history]:[]};
+  pushHistory(newIt,`Marked as Done — Client: ${clientV||'—'}, Ticket: ${ticketV||'—'}`);
+  D.done.unshift(newIt);
   save();closeDM();renderAll();toast('✅ Marked as Done');
 }
 
@@ -1942,45 +1964,50 @@ function confirmDelReason(){
   save();renderAll();toast('🗑 Deleted — restore from Manage → Deleted');
 }
 
-function sendToDeleted(item,from){if(!D.deleted)D.deleted=[];D.deleted.unshift({...item,_deletedFrom:from,_deletedAt:new Date().toISOString(),_deletedBy:_currentUser||'unknown'});}
+function sendToDeleted(item,from){
+  if(!D.deleted)D.deleted=[];
+  const copy={...item,_deletedFrom:from,_deletedAt:new Date().toISOString(),_deletedBy:_currentUser||'unknown'};
+  copy._history=item._history?[...item._history]:[];
+  pushHistory(copy,`Deleted from ${from}${item._deleteReason?' — Reason: '+item._deleteReason:''}`);
+  D.deleted.unshift(copy);
+}
 function delPool(id){openDelReason('pool',null,id);}
 function delDev(eng,id){openDelReason('dev',eng,id);}
 function delDone(id){openDelReason('done',null,id);}
 
 let _restorePendingId = null;
-let _restorePendingEngKey = null;
+const ENG_RESTORE_COLORS={arifuzzaman:'#db2777',maruf:'#059669',abusayed:'#ea580c',nazrul:'#7c3aed'};
+const ENG_RESTORE_ICONS={arifuzzaman:'👤',maruf:'👤',abusayed:'👤',nazrul:'👤'};
 
 function restoreDeleted(id){
   if(!D.deleted)return;
   const idx=D.deleted.findIndex(x=>x.id===id);if(idx===-1)return;
   const it=D.deleted[idx];
-  const from=it._deletedFrom||'';
-  const engKey=ENGS.find(en=>
-    cap(en)===from ||
-    en===from.toLowerCase() ||
-    en.toLowerCase()===from.toLowerCase()
-  );
+  _restorePendingId = id;
+  document.getElementById('restoreDestSub').textContent = `"${it.serial}" (${it.name}) — select where this item should be restored to:`;
 
-  if(engKey){
-    _restorePendingId = id;
-    _restorePendingEngKey = engKey;
-    document.getElementById('restoreDestSub').textContent = `"${it.serial}" (${it.name}) — where should it go?`;
-    document.getElementById('restoreOptEngLabel').textContent = `Restore to ${cap(engKey)}`;
-    document.getElementById('restoreDestModal').style.display='flex';
-    return;
-  }
+  const optRow=(key,icon,color,label,sub)=>`
+    <div class="restore-opt-row" onclick="confirmRestoreDest('${key}')" style="display:flex;align-items:center;gap:12px;padding:11px 15px;border-radius:10px;cursor:pointer;border:2px solid ${color}33;background:${color}0d;font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:var(--text);transition:all .15s;user-select:none;" onmouseover="this.style.borderColor='${color}';this.style.background='${color}1a'" onmouseout="this.style.borderColor='${color}33';this.style.background='${color}0d'">
+      <span style="font-size:19px;">${icon}</span>
+      <div>
+        <div style="font-weight:800;color:${color};font-family:'outfit',sans-serif;font-size:13px;">${label}</div>
+        <div style="font-size:10.5px;color:var(--muted);font-weight:600;margin-top:1px;">${sub}</div>
+      </div>
+    </div>`;
 
-  D.deleted.splice(idx,1);
-  const item={...it};
-  delete item._deletedFrom;delete item._deletedAt;delete item._deletedBy;delete item._deleteReason;
-  if(from==='Done'){if(!D.done)D.done=[];D.done.unshift({...item,id:gid()});toast(`↩ "${item.serial}" restored to Done`);}
-  else{if(!D.unassigned)D.unassigned=[];D.unassigned.unshift({...item,id:gid()});toast(`↩ "${item.serial}" restored to Unassigned`);}
-  save();renderAll();
+  let html = optRow('done','✅','#0077b6','Restore to Done List','Mark item back as a completed job');
+  html += optRow('unassigned','🔓','#5b8dd9','Send to Unassigned','Move to the unassigned devices pool');
+  ENGS.forEach(eng=>{
+    html += optRow(eng, ENG_RESTORE_ICONS[eng]||'👤', ENG_RESTORE_COLORS[eng]||'#1a4fa0', `Restore to ${cap(eng)}`, `Add back to ${cap(eng)}'s device list`);
+  });
+
+  document.getElementById('restoreOptionsContainer').innerHTML = html;
+  document.getElementById('restoreDestModal').style.display='flex';
 }
 
 function closeRestoreDestModal(){
   document.getElementById('restoreDestModal').style.display='none';
-  _restorePendingId=null;_restorePendingEngKey=null;
+  _restorePendingId=null;
 }
 
 function confirmRestoreDest(dest){
@@ -1989,18 +2016,109 @@ function confirmRestoreDest(dest){
   const it=D.deleted.splice(idx,1)[0];
   const item={...it};
   delete item._deletedFrom;delete item._deletedAt;delete item._deletedBy;delete item._deleteReason;
-  const engKey = _restorePendingEngKey;
+  item._history=it._history?[...it._history]:[];
   closeRestoreDestModal();
-  if(dest==='eng' && engKey){
-    if(!D[engKey])D[engKey]=[];
-    D[engKey].unshift({...item,id:gid()});
-    save();renderAll();toast(`↩ "${item.serial}" restored to ${cap(engKey)}`);
-  } else {
+
+  if(dest==='done'){
+    if(!D.done)D.done=[];
+    const newIt={...item,id:gid(),status:'Done'};
+    pushHistory(newIt,'Restored from Deleted → Done list');
+    D.done.unshift(newIt);
+    save();renderAll();toast(`↩ "${item.serial}" restored to Done`);
+  } else if(dest==='unassigned'){
     if(!D.unassigned)D.unassigned=[];
-    D.unassigned.unshift({...item,id:gid()});
-    save();renderAll();toast(`↩ "${item.serial}" sent to Unassigned`);
+    const newIt={...item,id:gid()};
+    delete newIt.status;delete newIt.tech;delete newIt.client;delete newIt.ticket;delete newIt.engineer;
+    pushHistory(newIt,'Restored from Deleted → Unassigned pool');
+    D.unassigned.unshift(newIt);
+    save();renderAll();toast(`↩ "${item.serial}" restored to Unassigned`);
+  } else if(ENGS.includes(dest)){
+    if(!D[dest])D[dest]=[];
+    const newIt={...item,id:gid(),status:item.status&&item.status!=='Unassigned'&&item.status!=='Done'?item.status:'IN-Hand'};
+    pushHistory(newIt,`Restored from Deleted → ${cap(dest)}'s list`);
+    D[dest].unshift(newIt);
+    save();renderAll();toast(`↩ "${item.serial}" restored to ${cap(dest)}`);
   }
 }
+
+const LOC_COLORS={Done:'#0077b6',Unassigned:'#5b8dd9',Deleted:'#c62828',Arifuzzaman:'#db2777',Maruf:'#059669',Abusayed:'#ea580c',Nazrul:'#7c3aed'};
+function fdt(iso){
+  if(!iso)return '—';
+  const d=new Date(iso);
+  const datePart=d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+  const timePart=d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit',hour12:true}).toLowerCase();
+  return `${datePart} <span style="color:var(--muted);font-weight:600;">(${timePart})</span>`;
+}
+function historyEventTag(txt){
+  const s=(txt||'').toLowerCase();
+  if(s.includes('returned'))return{label:'Returned',color:'#1a4fa0'};
+  if(s.includes('provided'))return{label:'Provided',color:'#ef6c00'};
+  if(s.includes('marked as done')||s.includes('done —')||s.startsWith('done'))return{label:'Done',color:'#0077b6'};
+  if(s.includes('deleted'))return{label:'Deleted',color:'#c62828'};
+  if(s.includes('restored'))return{label:'Restored',color:'#1a4fa0'};
+  if(s.includes('assigned'))return{label:'Assigned',color:'#5b21b6'};
+  if(s.includes('added to inventory'))return{label:'Added',color:'#059669'};
+  return{label:'Update',color:'#5278a8'};
+}
+function showItemDetails(id){
+  const it=(window._itemIndex||{})[id];
+  if(!it){toast('⚠ Details not found for this item');return;}
+  const hist=it._history||[];
+
+  const colBorder='border-right:1px solid rgba(91,141,217,.25);';
+  const rowsHtml = hist.length ? hist.map((h,i)=>{
+    const tag=historyEventTag(h.event);
+    const zebra = i%2===1 ? 'background:rgba(26,79,160,.045);' : '';
+    return `<tr style="${zebra}">
+      <td style="padding:10px 12px;font-size:12px;font-weight:700;color:var(--muted);border-bottom:1px solid rgba(91,141,217,.14);${colBorder}white-space:nowrap;">${i+1}</td>
+      <td style="padding:10px 12px;font-size:11.5px;font-weight:700;color:var(--accent2);white-space:nowrap;border-bottom:1px solid rgba(91,141,217,.14);${colBorder}">${fdt(h.at)}</td>
+      <td style="padding:10px 12px;border-bottom:1px solid rgba(91,141,217,.14);${colBorder}white-space:nowrap;"><span style="color:${tag.color};font-weight:800;font-size:11.5px;">${tag.label}</span></td>
+      <td style="padding:10px 12px;font-size:12px;font-weight:600;color:var(--text);border-bottom:1px solid rgba(91,141,217,.14);${colBorder}white-space:nowrap;">${e(h.event)}</td>
+      <td style="padding:10px 12px;font-size:11.5px;font-weight:700;color:var(--text2);border-bottom:1px solid rgba(91,141,217,.14);white-space:nowrap;">${e(h.by?cap(h.by):'—')}</td>
+    </tr>`;
+  }).join('') : `<tr><td colspan="5" style="padding:20px;text-align:center;color:var(--muted);font-size:12px;white-space:normal;">No history recorded for this item yet.</td></tr>`;
+
+  const historyTable = `
+    <div style="border:1.5px solid rgba(91,141,217,.3);border-radius:12px;overflow:hidden;">
+      <div style="max-height:300px;overflow-y:auto;overflow-x:auto;">
+        <table style="border-collapse:collapse;font-family:'Plus Jakarta Sans',sans-serif;min-width:100%;">
+          <thead style="position:sticky;top:0;">
+            <tr style="background:rgba(26,79,160,.1);">
+              <th style="padding:10px 12px;font-size:10.5px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;text-align:left;white-space:nowrap;${colBorder}">#</th>
+              <th style="padding:10px 12px;font-size:10.5px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;text-align:left;white-space:nowrap;${colBorder}">Date</th>
+              <th style="padding:10px 12px;font-size:10.5px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;text-align:left;white-space:nowrap;${colBorder}">Event</th>
+              <th style="padding:10px 12px;font-size:10.5px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;text-align:left;white-space:nowrap;${colBorder}">Details</th>
+              <th style="padding:10px 12px;font-size:10.5px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;text-align:left;white-space:nowrap;">By</th>
+            </tr>
+          </thead>
+          <tbody>${rowsHtml}</tbody>
+        </table>
+      </div>
+    </div>`;
+
+  const locColor = LOC_COLORS[it._loc] || '#1a4fa0';
+  const infoCard=(label,val)=> val ? `<div style="background:rgba(26,79,160,.06);border-radius:8px;padding:8px 10px;"><div style="font-size:9.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;">${label}</div><div style="font-size:12px;font-weight:700;color:var(--text);margin-top:2px;word-break:break-word;">${e(val)}</div></div>` : '';
+
+  document.getElementById('deviceDetailsSerialBadge').textContent = it.serial || '—';
+  document.getElementById('deviceDetailsBody').innerHTML = `
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:12px;">
+      <div style="font-family:'outfit',sans-serif;font-size:13px;font-weight:800;color:var(--text);">${e(it.name||'—')}</div>
+      <span style="background:${locColor}18;color:${locColor};font-size:10.5px;font-weight:800;padding:4px 10px;border-radius:20px;white-space:nowrap;">${e(it._loc||'—')}</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;">
+      ${infoCard('Status', it.status)}
+      ${infoCard('Technician', it.tech)}
+      ${infoCard('Client', it.client)}
+      ${infoCard('Ticket', it.ticket)}
+      ${infoCard('Engineer', it.engineer)}
+      ${infoCard('Deleted By', it._deletedBy?cap(it._deletedBy):'')}
+      ${infoCard('Delete Reason', it._deleteReason)}
+    </div>
+    ${historyTable}
+  `;
+  document.getElementById('deviceDetailsModal').style.display='flex';
+}
+function closeDeviceDetailsModal(){document.getElementById('deviceDetailsModal').style.display='none';}
 
 function toast(msg){
   const t=document.getElementById('toast');
@@ -3257,25 +3375,24 @@ function pdfFull(){
   <div style="background:#fff;border-radius:18px;padding:30px 28px 24px;max-width:400px;width:92%;box-shadow:0 16px 56px rgba(0,0,0,.28);animation:pop .18s ease both;">
     <div style="font-family:'outfit',sans-serif;font-size:16px;font-weight:800;color:#1e5bb8;margin-bottom:6px;display:flex;align-items:center;gap:8px;">↩ Restore Item</div>
     <div id="restoreDestSub" style="font-size:12px;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif;margin-bottom:18px;line-height:1.5;"></div>
-    <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:6px;">
-      <div id="restoreOptEng" onclick="confirmRestoreDest('eng')" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:10px;cursor:pointer;border:2px solid rgba(26,79,160,.25);background:rgba(230,240,255,.4);font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:var(--text);transition:all .15s;user-select:none;" onmouseover="this.style.borderColor='#1a4fa0';this.style.background='rgba(26,79,160,.1)'" onmouseout="this.style.borderColor='rgba(26,79,160,.25)';this.style.background='rgba(230,240,255,.4)'">
-        <span style="font-size:20px;">👤</span>
-        <div>
-          <div id="restoreOptEngLabel" style="font-weight:800;color:#1a4fa0;font-family:'outfit',sans-serif;font-size:13px;"></div>
-          <div style="font-size:11px;color:var(--muted);font-weight:600;margin-top:1px;">Restore to original engineer's list</div>
-        </div>
-      </div>
-      <div onclick="confirmRestoreDest('unassigned')" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:10px;cursor:pointer;border:2px solid rgba(91,141,217,.25);background:rgba(240,245,255,.4);font-size:13px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;color:var(--text);transition:all .15s;user-select:none;" onmouseover="this.style.borderColor='#5b8dd9';this.style.background='rgba(91,141,217,.12)'" onmouseout="this.style.borderColor='rgba(91,141,217,.25)';this.style.background='rgba(240,245,255,.4)'">
-        <span style="font-size:20px;">🔓</span>
-        <div>
-          <div style="font-weight:800;color:#5b8dd9;font-family:'outfit',sans-serif;font-size:13px;">Send to Unassigned</div>
-          <div style="font-size:11px;color:var(--muted);font-weight:600;margin-top:1px;">Move to unassigned pool instead</div>
-        </div>
-      </div>
-    </div>
+    <div id="restoreOptionsContainer" style="display:flex;flex-direction:column;gap:8px;margin-bottom:6px;max-height:340px;overflow-y:auto;"></div>
     <div style="display:flex;gap:9px;margin-top:16px;">
       <button onclick="closeRestoreDestModal()" style="flex:1;padding:11px;background:rgba(221,232,248,.9);color:var(--text2);border:1px solid var(--border);border-radius:9px;font-family:'outfit',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:all .2s;">Cancel</button>
     </div>
+  </div>
+</div>
+
+<!-- DEVICE DETAILS MODAL -->
+<div id="deviceDetailsModal" style="position:fixed;inset:0;z-index:5100;background:rgba(10,25,60,.55);display:none;align-items:center;justify-content:center;backdrop-filter:blur(5px);">
+  <div style="background:#fff;border-radius:18px;padding:24px 24px 20px;max-width:680px;width:94%;max-height:88vh;overflow-y:auto;box-shadow:0 16px 56px rgba(0,0,0,.28);animation:pop .18s ease both;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;gap:10px;">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <div style="font-family:'outfit',sans-serif;font-size:16px;font-weight:800;color:#1e5bb8;display:flex;align-items:center;gap:8px;white-space:nowrap;">🕐 Device History</div>
+        <span id="deviceDetailsSerialBadge" style="background:rgba(26,79,160,.1);color:var(--accent2);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;padding:5px 12px;border-radius:8px;"></span>
+      </div>
+      <button onclick="closeDeviceDetailsModal()" style="background:rgba(198,40,40,.1);border:1px solid rgba(198,40,40,.25);color:#c62828;border-radius:8px;width:28px;height:28px;cursor:pointer;font-size:14px;font-weight:700;flex-shrink:0;">✕</button>
+    </div>
+    <div id="deviceDetailsBody"></div>
   </div>
 </div>
 
